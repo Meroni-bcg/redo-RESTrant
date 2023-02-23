@@ -1,0 +1,23 @@
+{
+  "name": "redo-restrant",
+  "version": "1.0.0",
+  "description": "// Jane Doe’s Handy Express Checklist",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Meroni-bcg/redo-RESTrant.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Meroni-bcg/redo-RESTrant/issues"
+  },
+  "homepage": "https://github.com/Meroni-bcg/redo-RESTrant#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
