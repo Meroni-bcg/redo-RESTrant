@@ -17,9 +17,9 @@ app.get('/', (req, res) => {
 })
 
 // 2nd route must be below other route or itll overide. use wildcard *
-
+//return a status code 404 by adding res.status(404)
 app.get("*", (req, res) =>{
-    res.send("<h1> 404 Page </h1>")
+    res.status(404).send("<h1> 404 Page </h1>")
 })
 
 // pull the PORT variable from the .env file
