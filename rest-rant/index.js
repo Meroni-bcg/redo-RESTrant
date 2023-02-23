@@ -1,3 +1,6 @@
+// require is a statement that reads a js file executes it, and then proceeds to return the export object
+
+require("dotenv").config()
 // Require express at the top of the file
 const express = require ("express")
 
@@ -13,6 +16,12 @@ app.get('/', (req, res) => {
     res.send("Hello world!")
 })
 
-// 11. Call app.listen(3000) to keep server open
+// 2nd route must be below other route or itll overide. use wildcard *
 
-app.listen(3000)
+app.get("*", (req, res) =>{
+    res.send("<h1> 404 Page </h1>")
+})
+
+// pull the PORT variable from the .env file
+
+app.listen(process.env.PORT)
