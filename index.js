@@ -7,11 +7,15 @@ const express = require ("express")
 //  Initialize the app variable
 const app = express ()
 
+// route to define view engine
+
+app.set("view engine","jsx")
+app.engine("jsx", require("express-react-views").createEngine())
 // import the router created in places.js
 // The first argument to app.use, /places sets all routes in the places controller relative to /places. 
 // This means that /places will be added in front of any other path we define in the controller.
 
-app.use("/places", require("./rest-rant/controllers/places"))
+app.use("/places", require("./controllers/places"))
 
 //    a. Call app.get()
 //    b. Set ‘/‘ as the path (first arg)
@@ -19,7 +23,7 @@ app.use("/places", require("./rest-rant/controllers/places"))
 //    d. Call res.send(‘hello world’) 
 
 app.get('/', (req, res) => {
-    res.send("Hello world!")
+    res.render("Home")
 })
 
 // 2nd route must be below other route or itll overide. use wildcard *
