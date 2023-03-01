@@ -1,7 +1,7 @@
 const router = require('express').Router()
 const places = require('../models/places.js')
 const React = require('react')
-const db = reqiure("../models")
+const db = require("../models")
 
 router.get('/new', (req, res) => {
   res.render('places/new')

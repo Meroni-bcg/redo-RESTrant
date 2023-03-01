@@ -1,3 +1,6 @@
+const mongoose = require('mongoose')
+const MONGO_URI = process.env.MONGO_URI;
+
 //Modules and Globals
 require('dotenv').config();
 const express = require('express');
@@ -38,10 +41,10 @@ app.get('*', (req, res) => {
 app.listen(PORT, () => {
   console.log(`Listening on port:${PORT}`);
 });
-T
+
 app.listen(process.env.PORT)
 
 
-//const MONGO_URI = process.env.MONGO_URI;
-//const mongoose = require('mongoose')
+//
+//
 //app.use('/places', require ('./controllers/places'));
