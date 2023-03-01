@@ -1,38 +1,47 @@
-// require is a statement that reads a js file executes it, and then proceeds to return the export object
+//Modules and Globals
+require('dotenv').config();
+const express = require('express');
+const app = express();
+const methodOverride = require('method-override')
+const jsxEngine = require("express-react-views").createEngine()
+const placesController = require('./controllers/places')
+const PORT = process.env.PORT;
 
-require("dotenv").config()
-// Require express at the top of the file
-const express = require ("express")
+// Express Settings
+//app.set('views', __dirname + '/views');
+app.set('view engine', 'jsx');
+app.engine('jsx', require('express-react-views').createEngine());
+app.use(express.static("public"));
+app.use(express.urlencoded({ extended: true }));
+app.use(methodOverride('_method'))
 
-//  Initialize the app variable
-const app = express ()
-
-
-// route to define view engine
-
-app.set("view engine","jsx")
-app.engine("jsx", require("express-react-views").createEngine())
-// import the router created in places.js
-// The first argument to app.use, /places sets all routes in the places controller relative to /places. 
-// This means that /places will be added in front of any other path we define in the controller.
-
-app.use("/places", require("./controllers/places"))
-
-//    a. Call app.get()
-//    b. Set ‘/‘ as the path (first arg)
-//    c. Write callback function with req, res
-//    d. Call res.send(‘hello world’) 
-
+mongoose.connect(
+    MONGO_URI,
+    {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    },
+    () => {
+      console.log(`connected to MONGO ${MONGO_URI}`);
+    }
+  );
+  
+// Controllers & Routes
+app.use('/places', require ('./controllers/places'));
 app.get('/', (req, res) => {
-    res.render("Home")
-})
-
-// 2nd route must be below other route or itll overide. use wildcard *
-//return a status code 404 by adding res.status(404)
-app.get("*", (req, res) =>{
-    res.render("error404")
-})
-
-// pull the PORT variable from the .env file
-
+    res.render('home')
+});
+app.get('*', (req, res) => {
+    res.render('error404')
+});
+// Listen for Connections
+app.listen(PORT, () => {
+  console.log(`Listening on port:${PORT}`);
+});
+T
 app.listen(process.env.PORT)
+
+
+//const MONGO_URI = process.env.MONGO_URI;
+//const mongoose = require('mongoose')
+//app.use('/places', require ('./controllers/places'));

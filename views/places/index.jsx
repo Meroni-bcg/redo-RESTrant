@@ -1,18 +1,32 @@
-//places index page
-
 const React = require('react')
-const Def = require('./default')
+const Def = require('../default')
 
-function  places () {
+function index ({places}) {
+  let placesFormatted = places.map((place) => {
     return (
-      <Def>
-          <main>
-              <h1>hi places</h1>
-              <p>Where should we eat?</p>
-          </main>
-      </Def>
+      <div className="col-sm-6" key={ index }>
+        <h2 className= "text-center">
+          <a href = {`/places/${place._id}`}> </a> 
+        </h2>
+        <p className="text-center"> {place.cuisines}</p>
+          <img src={place.pic} alt={place.name}/>
+        <p className="text-center">
+          Located in {place.city}, {place.state}
+        </p>
+      </div>
     )
-  }
-  
+  })
 
-module.exports = places
+  return(
+    <Def>
+      <main>
+        <h1>PLACES to Rant or Rave About</h1>
+          <div clasName="row">
+            {placesFormatted}
+          </div>
+      </main>
+    </Def>
+    )
+}
+  
+  module.exports = index()

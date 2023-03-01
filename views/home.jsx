@@ -2,17 +2,27 @@
 
 
 const React = require('react')
-const Def = require('./default')
+const Def = require('./default')             
 
 function home () {
     return (
-      <Def>
+        <Def>
           <main>
-              <h1>HOME is where the pasta is</h1>
-          </main>
-      </Def>
+              <h1>HOME</h1>
+               <div>
+                  <img src="public/images/dessert.png" alt="dessertimage" />
+                    <div>           
+                      Photo by <a href="https://www.canva.com/design/DAFb6cl7VS8/oX-OHT3YasQqAOlX3ySVew/view?utm_content=DAFb6cl7VS8&utm_campaign=designshare&utm_medium=link&utm_source=homepage_design_menu"> Amairani Cervantes </a> On <a href="canva.com">Canva</a>
+                    </div> 
+                </div>
+                <a href="/places">
+                    <button className="btn-primary">Places Page</button>
+                </a>
+                <h1>Thanks for the picture!</h1>
+            </main>
+        </Def>
     )
-  }
-  
+}
 
 module.exports = home
+
