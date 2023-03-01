@@ -7,6 +7,7 @@ const express = require ("express")
 //  Initialize the app variable
 const app = express ()
 
+
 // route to define view engine
 
 app.set("view engine","jsx")
