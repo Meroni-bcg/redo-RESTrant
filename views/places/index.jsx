@@ -21,7 +21,7 @@ function index ({places}) {
     <Def>
       <main>
         <h1>PLACES to Rant or Rave About</h1>
-          <div clasName="row">
+          <div className="row">
             {placesFormatted}
           </div>
       </main>
@@ -29,4 +29,4 @@ function index ({places}) {
     )
 }
   
-  module.exports = index()
+  module.exports = index
